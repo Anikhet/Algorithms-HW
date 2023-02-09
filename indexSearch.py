@@ -1,10 +1,11 @@
 """
 file: indexSearch.py
 language: python3
-author: Anikhet Mulky , am9559@g.rit.edu, Matthew Thai, tqt6351@rit.edu
+author: Anikhet Mulky , am9559@g.rit.edu
 """
-
-
+"""_summary_: This program takes in a list of numbers and checks if the index of the number is equal to the number itself.
+If it is, it prints TRUE, else it prints FALSE.
+"""
 def bin_search(data, left, right):
     """
     Binary search algorithm.

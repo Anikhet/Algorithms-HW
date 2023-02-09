@@ -2,6 +2,10 @@
 file: oneMatch.py
 language: python3
 author: Anikhet Mulky , am9559@g.rit.edu
+<<<<<<< HEAD
+=======
+__summary__: This program takes in two groups of people and their preferences and finds a stable matching between them.
+>>>>>>> new-features
 """
 
 
