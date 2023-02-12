@@ -6,6 +6,11 @@ author: Anikhet Mulky , am9559@g.rit.edu
 
 
 def merge_count(data):
+    """
+    Merges and counts the number of inversions.
+    :param data: list of integers
+    :return: list of integers, number of inversions
+    """
     if len(data) <= 1:
         return data, 0
     mid = len(data) // 2
