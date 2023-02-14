@@ -11,7 +11,6 @@ def read_input():
     """
     Reads input.
     """
-
     num = int(input())
     grp_one = [[] for i in range(num)]
 
@@ -57,19 +56,9 @@ def priority(heap, data, count, cumulative):
 
 def main():
     num_length, data = read_input()
-    bound = data[-1][0]
     count = 0
-
-    cumulative = [0] * len(data)
     data = [tuple(x) for x in data]
-    lookup_heap = {}
-
-    heapq.heapify(data)
-    # for x in range(len(data)):
-    #     print(data[x], lookup_heap[data[x]])
-
     temp = data[0][0]
-
     for x in range(len(data)):
         if data[x][0] == temp:
             count += 1
@@ -80,7 +69,6 @@ def main():
         cumulative[x] = data[x][0] + data[x][1]
 
     heap = cumulative[0:count]
-
     heapq.heapify(heap)
     heap = priority(heap, data, count, cumulative)
     if heap:
@@ -91,16 +79,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-# 11
-# 0 3
-# 0 3
-# 1 9
-# 1 15
-# 7 3
-# 7 3
-# 8 2
-# 8 2
-# 9 20
-# 10 20
-# 11 20

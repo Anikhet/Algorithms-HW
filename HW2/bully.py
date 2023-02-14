@@ -26,7 +26,6 @@ def merge_count(data):
             index_one += 1
         else:
             inversions += len(first) - index_one
-
             result.append(second[index_two])
             index_two += 1
 
