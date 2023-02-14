@@ -79,10 +79,6 @@ def main():
     for x in range(len(data)):
         cumulative[x] = data[x][0] + data[x][1]
 
-    for x in range(len(data)):
-        cumulative[x] = data[x][0] + data[x][1]
-        lookup_heap[data[x]] = cumulative[x]
-
     heap = cumulative[0:count]
 
     heapq.heapify(heap)
