@@ -44,6 +44,7 @@ def combo(data, index, index1, index2, threshold):
     b2 = data[index + 1][index2]
     temp = abs(a1 - b1) + abs(a2 - b2)
     if temp <= threshold:
+        print(a1,a2,b1,b2)
         return "YES"
     temp = abs(a1 - b2) + abs(a2 - b1)
     if temp <= threshold:
@@ -52,8 +53,9 @@ def combo(data, index, index1, index2, threshold):
 
 def domino(data, num_length, threshold):
     data_sort_two = count_sort(data, num_length, 1)
-    data_sort_one = count_sort(data,num_length,0)
+    data_sort_one = count_sort(data, num_length, 0)
     data_sort_two_one = count_sort(data_sort_two, num_length, 0)
+    data_sort_one_two = count_sort(data_sort_one, num_length, 1)
 
     for index in range(len(data)):
         if index + 1 == len(data):
@@ -61,9 +63,10 @@ def domino(data, num_length, threshold):
 
         combo1 = combo(data_sort_one, index, 0, 1, threshold)
         combo2 = combo(data_sort_two, index, 0, 1, threshold)
-        combo3 = combo(data_sort_two_one,index,0,1,threshold)
+        combo3 = combo(data_sort_two_one, index, 0, 1, threshold)
+        combo4 = combo(data_sort_one_two, index, 0, 1, threshold)
 
-        if combo1 or combo2 or combo3:
+        if combo1 or combo2 or combo3 or combo4:
             return "YES"
 
 
@@ -71,12 +74,13 @@ def main():
     num_length, threshold, data = read_input()
     for x in range(len(data)):
         if data[x][0] > data[x][1]:
-            data[x][0],data[x][1] = data[x][1],data[x][0]
+            data[x][0], data[x][1] = data[x][1], data[x][0]
 
     print(domino(data, num_length, threshold))
 
 
 if __name__ == '__main__':
     main()
+
 
 
