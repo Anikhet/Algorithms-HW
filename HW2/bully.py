@@ -16,7 +16,7 @@ def merge_count(data):
     mid = len(data) // 2
     first, temp = merge_count(data[:mid])
     second, temp2 = merge_count(data[mid:])
-    inversions = temp + temp2
+    inversions = temp + temp2 # adding inversions from every recursive call
     result = []
     index_one = index_two = 0
 
@@ -25,7 +25,7 @@ def merge_count(data):
             result.append(first[index_one])
             index_one += 1
         else:
-            inversions += len(first) - index_one
+            inversions += len(first) - index_one # Counting inversions
             result.append(second[index_two])
             index_two += 1
 
@@ -56,8 +56,8 @@ def main():
     for index in range(len(data)):
         if data[index] == -1:
             tp, temp = merge_count(data[bookmark:index])
-            inversion += temp
-            bookmark = index + 1
+            inversion += temp # Adding inversions from every sub-array.
+            bookmark = index + 1 # index from where the next sub-array should start from
             continue
         if index == len(data) - 1:
             tp, temp = merge_count(data[bookmark:len(data)])
