@@ -5,9 +5,6 @@ author: Nithish Kumar, nk6825@g.rit.edu, Anikhet Mulky, am9559@g.rit.edu
 """
 import sys
 
-T1 = 0
-T2 = 0
-
 
 def quick_select(arr, left, right, min_pivot, min_diff):
     if len(arr) == 1:
@@ -35,18 +32,20 @@ def quick_select(arr, left, right, min_pivot, min_diff):
         return quick_select(old, left, right - sum([stu[1] for stu in old]), min_pivot, min_diff)
 
 
-def main():
+def read_input():
     arr = []
     n = int(input())
-    global T1, T2
     T1 = float(input())
     T2 = float(input())
     for _ in range(n):
         line = input()
         l = line.split()
         arr.append((float(l[0]), float(l[1])))
-    global SUM
-    SUM = sum([row[1] for row in arr]) + T1 + T2
+    return T1,T2,arr
+    
+
+def main():
+    T1,T2,arr = read_input()
     pivot1, min1 = quick_select(arr, T1, T2, arr[0], sys.maxsize)
     T1, T2 = T2, T1
     pivot2, min2 = quick_select(arr, T1, T2, arr[0], sys.maxsize)
