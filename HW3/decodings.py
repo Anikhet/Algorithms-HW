@@ -1,7 +1,7 @@
 """
 file: decodings.py
 language: python3
-author: Anikhet Mulky , am9559@g.rit.edu
+author: Anikhet Mulky , am9559@g.rit.edu,  Nithish Kumar, nk6825@g.rit.edu
 """
 
 

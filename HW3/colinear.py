@@ -1,7 +1,7 @@
 """
 file: colinear.py
 language: python3
-author: Anikhet Mulky , am9559@g.rit.edu
+author: Anikhet Mulky , am9559@g.rit.edu, Nithish Kumar, nk6825@g.rit.edu
 """
 
 import time
@@ -80,6 +80,29 @@ def algorithm(data):
                 if slope_one == slope_two:
                     return True
 
+                
+def algorithm_optimal(data):
+    table = {}
+    for index in range(len(data)):
+        table[tuple(data[index])] = table.get(tuple(data[index]),0)
+    for index in range(len(data)):
+
+        for inside_index in range(index + 1, len(data)):
+            x_one = data[index][0]
+            y_one = data[index][1]
+            x_two = data[inside_index][0]
+            y_two = data[inside_index][1]
+
+            coordinates = ((x_one + x_two) / 2, (y_one + y_two) / 2)
+
+            if not (coordinates[0].is_integer() and coordinates[1].is_integer()):
+                continue
+            if tuple(coordinates) in table:
+                slope_one = (y_two - y_one) / (x_two - x_one)
+                slope_two = (coordinates[1] - y_one) / (coordinates[0] - x_one)
+                if slope_one == slope_two:
+                    return True
+
 
 def read_input():
     """
@@ -99,10 +122,15 @@ def main():
     first_sort = merge_sort(data, 1)
     first_sort = merge_sort(data, 0)
 
-    if algorithm(first_sort):
+    if algorithm(first_sort):  # O(n2 Log n)
         print("YES")
     else:
         print("NO")
+        
+    # if algorithm_optimal(first_sort):  # This one uses hash-table to make it O(n2)
+    #     print("YES")
+    # else:
+    #     print("NO")
 
     end = time.time()
     print(end - start)
