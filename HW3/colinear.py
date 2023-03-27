@@ -133,7 +133,7 @@ def main():
     #     print("NO")
 
     end = time.time()
-    # print(end - start) # Timer
+    # print(end - start) # Time taken to run the program.
 
 
 if __name__ == '__main__':

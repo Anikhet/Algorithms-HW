@@ -43,6 +43,7 @@ def read_input():
         arr.append((float(l[0]), float(l[1])))
     return T1,T2,arr
     
+    
 
 def main():
     T1,T2,arr = read_input()
